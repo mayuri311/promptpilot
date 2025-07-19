@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+
+# Python-specific files
+*.log
+*.pot
+*.mo
+
+# Data / Models / Artifacts
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.joblib
+*.pkl
+*.npz
+*.npy
+*.sav
+*.pb
+*.tflite
+
+# Ignore environment & config
+.env
+.env.*
+config.yaml
+
+# OS files
+.DS_Store
+Thumbs.db
