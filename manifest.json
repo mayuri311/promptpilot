@@ -7,7 +7,8 @@
       "activeTab",
       "scripting",
       "clipboardWrite",
-      "storage"
+      "storage",
+      "sidePanel"
     ],
     "host_permissions": [
         "<all_urls>"
@@ -30,7 +31,8 @@
       }
     },
     "side_panel": {
-      "default_path": "sidepanel.html"    },
+      "default_path": "sidepanel.html"
+    },
     "icons": {
       "512": "icons/promptpilot512.png"
     }
