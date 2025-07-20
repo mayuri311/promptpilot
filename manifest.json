@@ -23,13 +23,14 @@
       "service_worker": "background.js"
     },
     "action": {
-      "side_panel": "sidepanel.html",
       "default_title": "Your Prompt Pilot",
       "default_icon": {
         "16": "icons/promptpilot16.png",
         "48": "icons/promptpilot48.png"
       }
     },
+    "side_panel": {
+      "default_path": "sidepanel.html"    },
     "icons": {
       "512": "icons/promptpilot512.png"
     }
