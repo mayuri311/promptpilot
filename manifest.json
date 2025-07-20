@@ -5,7 +5,8 @@
     "description": "A Chrome extension for embedded prompt engineering.",
     "permissions": [
       "storage",
-      "sidePanel"
+      "sidePanel",
+      "tabs"
     ],
     "host_permissions": [
         "<all_urls>"
