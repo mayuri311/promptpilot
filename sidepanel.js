@@ -20,6 +20,17 @@ document.getElementById('submitButton').addEventListener('click', async () => {
   }
 });
 
+// get current site info
+chrome.storage.local.get('currentSite', ({ currentSite }) => {
+  const siteDisplay = document.getElementById('siteName');
+  if (currentSite) {
+    const url = new URL(currentSite);
+    siteDisplay.innerText = `You're on: ${url.hostname}`;
+  } else {
+    siteDisplay.innerText = 'Site info not available';
+  }
+});
+
 async function getImprovedPrompt(prompt, tone) {
   // ✅ Mocked API response
   await new Promise(resolve => setTimeout(resolve, 800));
