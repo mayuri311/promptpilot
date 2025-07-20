@@ -4,36 +4,24 @@
     "version": "1.0",
     "description": "A Chrome extension for embedded prompt engineering.",
     "permissions": [
-      "activeTab",
-      "scripting",
-      "clipboardWrite",
       "storage",
       "sidePanel"
     ],
     "host_permissions": [
         "<all_urls>"
     ],
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"],
-        "run_at": "document_idle"
-      }
-    ],
     "background": {
       "service_worker": "background.js"
     },
     "action": {
-      "default_title": "Your Prompt Pilot",
-      "default_icon": {
-        "16": "icons/promptpilot16.png",
-        "48": "icons/promptpilot48.png"
-      }
+      "default_title": "Your Prompt Pilot"
     },
     "side_panel": {
       "default_path": "sidepanel.html"
     },
     "icons": {
+      "16": "icons/promptpilot16.png",
+      "48": "icons/promptpilot48.png",
       "512": "icons/promptpilot512.png"
     }
-  }
+}
