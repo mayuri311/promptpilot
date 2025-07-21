@@ -2,20 +2,18 @@ chrome.runtime.onInstalled.addListener(() => {
   console.log("PromptPilot installed.");
 });
 
-chrome.action.onClicked.addListener(async () => {
-  try {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+chrome.action.onClicked.addListener((tab) => {
+  console.log("Icon clicked on tab:", tab);
 
-    await chrome.sidePanel.setOptions({
-      tabId: tab.id,
-      path: 'sidepanel.html',
-      enabled: true
-    });
+  chrome.sidePanel.setOptions({
+    tabId: tab.id,
+    path: 'sidepanel.html',
+    enabled: true
+  });
 
-    await chrome.sidePanel.open({ tabId: tab.id });
-  } catch (e) {
-    console.error('Failed to open side panel:', e);
-  }
+  chrome.sidePanel.open({ tabId: tab.id }).catch((e) => {
+    console.error(" Failed to open side panel:", e);
+  });
 });
 
 // listen for tab switches or updates

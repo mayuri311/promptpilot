@@ -6,7 +6,9 @@
     "permissions": [
       "storage",
       "sidePanel",
-      "tabs"
+      "tabs",
+      "activeTab",
+      "scripting"
     ],
     "host_permissions": [
         "<all_urls>"
@@ -20,6 +22,13 @@
     "side_panel": {
       "default_path": "sidepanel.html"
     },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
     "icons": {
       "16": "icons/promptpilot16.png",
       "48": "icons/promptpilot48.png",
