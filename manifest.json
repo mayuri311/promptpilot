@@ -2,31 +2,41 @@
     "manifest_version": 3,
     "name": "promptpilot",
     "version": "1.0",
-    "description": "A Chrome extension for embedded prompt engineering.",
+    "description": "Real-time prompt engineering suggestions for better AI interactions.",
     "permissions": [
       "storage",
-      "sidePanel",
       "tabs",
       "activeTab",
       "scripting"
     ],
     "host_permissions": [
-        "<all_urls>"
+      "https://chat.openai.com/*",
+      "https://claude.ai/*",
+      "https://bard.google.com/*",
+      "https://www.perplexity.ai/*",
+      "https://you.com/*",
+      "https://poe.com/*"
     ],
     "background": {
       "service_worker": "background.js"
     },
     "action": {
+      "default_popup": "popup.html",
       "default_title": "Your Prompt Pilot"
-    },
-    "side_panel": {
-      "default_path": "sidepanel.html"
     },
     "content_scripts": [
       {
-        "matches": ["<all_urls>"],
+        "matches": [
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://bard.google.com/*",
+        "https://www.perplexity.ai/*",
+        "https://you.com/*",
+        "https://poe.com/*"
+      ],
+        "css": ["style.css"],
         "js": ["content.js"],
-        "run_at": "document_idle"
+        "run_at": "document_end"
       }
     ],
     "icons": {

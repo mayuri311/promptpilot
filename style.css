@@ -1,0 +1,230 @@
+/* PromptCraft Extension Styles */
+
+/* Base highlight styling */
+.pc-suggestion-highlight {
+  background: linear-gradient(to bottom, transparent 0%, transparent 85%, #ff6b6b 85%, #ff6b6b 100%) !important;
+  background-size: 2px 1em !important;
+  background-repeat: repeat-x !important;
+  position: relative !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.pc-suggestion-highlight:hover {
+  background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+/* Different colors for different issue types */
+.pc-suggestion-highlight[data-type="vague"] {
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 85%, #ff6b6b 85%, #ff6b6b 100%) !important;
+}
+
+.pc-suggestion-highlight[data-type="context"] {
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 85%, #ffd93d 85%, #ffd93d 100%) !important;
+}
+
+.pc-suggestion-highlight[data-type="format"] {
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 85%, #6bcf7f 85%, #6bcf7f 100%) !important;
+}
+
+.pc-suggestion-highlight[data-type="ambiguous"] {
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 85%, #4ecdc4 85%, #4ecdc4 100%) !important;
+}
+
+/* Tooltip styling */
+.pc-tooltip {
+  position: absolute !important;
+  background: #2d3748 !important;
+  color: #ffffff !important;
+  padding: 16px 20px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  z-index: 999999 !important;
+  max-width: 320px !important;
+  min-width: 200px !important;
+  line-height: 1.5 !important;
+  border: 1px solid #4a5568 !important;
+  backdrop-filter: blur(16px) !important;
+  animation: pc-tooltip-in 0.15s ease-out !important;
+}
+
+@keyframes pc-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pc-tooltip::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -6px !important;
+  left: 24px !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: #2d3748 !important;
+  border: 1px solid #4a5568 !important;
+  border-bottom: none !important;
+  border-right: none !important;
+  transform: rotate(45deg) !important;
+}
+
+.pc-suggestion-title {
+  font-weight: 700 !important;
+  color: #81e6d9 !important;
+  margin-bottom: 8px !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.pc-suggestion-title::before {
+  content: '💡' !important;
+  margin-right: 6px !important;
+  font-size: 14px !important;
+}
+
+.pc-suggestion-text {
+  margin-bottom: 12px !important;
+  color: #e2e8f0 !important;
+  font-weight: 400 !important;
+}
+
+.pc-suggestion-example {
+  background: #1a202c !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  font-style: italic !important;
+  border-left: 4px solid #81e6d9 !important;
+  color: #cbd5e0 !important;
+  font-size: 13px !important;
+  position: relative !important;
+}
+
+.pc-suggestion-example::before {
+  content: 'Better: ' !important;
+  position: absolute !important;
+  top: -8px !important;
+  left: 8px !important;
+  background: #1a202c !important;
+  color: #81e6d9 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 0 6px !important;
+}
+
+/* Overlay container */
+.pc-overlay {
+  position: absolute !important;
+  pointer-events: auto !important;
+  z-index: 99998 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Status indicator */
+.pc-status-indicator {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  background: #2d3748 !important;
+  color: #81e6d9 !important;
+  padding: 8px 12px !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  z-index: 999999 !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  border: 1px solid #4a5568 !important;
+}
+
+.pc-status-indicator.visible {
+  opacity: 1 !important;
+}
+
+/* Different highlight animations for different severities */
+.pc-suggestion-highlight[data-severity="high"] {
+  animation: pc-pulse-red 2s infinite !important;
+}
+
+.pc-suggestion-highlight[data-severity="medium"] {
+  animation: pc-pulse-yellow 3s infinite !important;
+}
+
+@keyframes pc-pulse-red {
+  0%, 100% { background-color: rgba(255, 107, 107, 0); }
+  50% { background-color: rgba(255, 107, 107, 0.15); }
+}
+
+@keyframes pc-pulse-yellow {
+  0%, 100% { background-color: rgba(255, 217, 61, 0); }
+  50% { background-color: rgba(255, 217, 61, 0.1); }
+}
+
+/* Ensure compatibility with popular AI sites */
+.pc-tooltip,
+.pc-suggestion-highlight,
+.pc-overlay {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* ChatGPT specific overrides */
+body[class*="chatgpt"] .pc-tooltip,
+div[class*="chat"] .pc-tooltip {
+  font-family: "Söhne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Claude specific overrides */
+div[class*="claude"] .pc-tooltip {
+  font-family: "Claude Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pc-tooltip {
+    max-width: 280px !important;
+    font-size: 13px !important;
+    padding: 12px 16px !important;
+  }
+  
+  .pc-suggestion-example {
+    font-size: 12px !important;
+    padding: 10px !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .pc-tooltip {
+    border: 2px solid #ffffff !important;
+    background: #000000 !important;
+  }
+  
+  .pc-suggestion-highlight {
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 80%, #ffffff 80%, #ffffff 100%) !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pc-tooltip {
+    animation: none !important;
+  }
+  
+  .pc-suggestion-highlight {
+    animation: none !important;
+  }
+}
